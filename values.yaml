@@ -1,0 +1,21 @@
+neo4j:
+  neo4j:
+    name: standalone-neo4j
+    password: "CHANGEME"
+    # resources:
+    #   cpu: "500m"
+    #   memory: "2Gi"
+  services:
+    default:
+      annotations:
+        cloud.google.com/backend-config: '{"default": "neo4j"}'
+  volumes:
+    data:
+      mode: "defaultStorageClass"
+  config:
+    server.bolt.tls_level: "DISABLED"
+networking:
+  browser:
+    domain: "neo4j-browser.example.com"
+  bolt:
+    domain: "neo4j-bolt.example.com"
